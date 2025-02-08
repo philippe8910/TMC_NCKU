@@ -1,0 +1,32 @@
+{
+  "levels": [
+    {
+      "levelName": "Basic Training",
+      "timeLimit": 120.0,
+      "difficulty": "Easy",
+      "skipTutorial": false,
+      "recipeFile": "Recipes"
+    },
+    {
+      "levelName": "Intermediate Challenge",
+      "timeLimit": 90.0,
+      "difficulty": "Medium",
+      "skipTutorial": true,
+      "recipeFile": "Recipes"
+    },
+    {
+      "levelName": "Final Test",
+      "timeLimit": 60.0,
+      "difficulty": "Hard",
+      "skipTutorial": true,
+      "recipeFile": "Recipes"
+    },
+    {
+      "levelName": "Final Final Test",
+      "timeLimit": 60.0,
+      "difficulty": "Hard",
+      "skipTutorial": true,
+      "recipeFile": "Recipes"
+    }
+  ]
+}

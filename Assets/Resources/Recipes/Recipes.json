@@ -1,0 +1,12 @@
+{
+  "recipes": [
+    {
+      "ingredients": ["RedPill", "BluePill"],
+      "result": "SuperDrug"
+    },
+    {
+      "ingredients": ["GreenPill", "YellowPill"],
+      "result": "HealingPotion"
+    }
+  ]
+}
