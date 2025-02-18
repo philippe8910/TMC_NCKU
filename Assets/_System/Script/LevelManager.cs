@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 
 [System.Serializable]
 public enum Difficulty
@@ -32,6 +33,8 @@ public class LevelManager : MonoBehaviour
     
     public int currentLevelIndex = 0;
     public int maxLevelIndex = 0;
+    
+    public TimerComponent timerComponent;
     
     [SerializeField] private LevelConfig levelData;
 
@@ -81,6 +84,14 @@ public class LevelManager : MonoBehaviour
         maxLevelIndex = levelData.levels.Count; 
         
         LoadLevelRecipes(currentLevelIndex - 1);
+        LoadLevelData(currentLevelIndex - 1);
+    }
+    
+    [Button("Debug Set PlayerPrefs")]
+    void Debug_SetPlayerPrefs(int levelIndex)
+    {
+        PlayerPrefs.SetInt("LevelIndex", levelIndex);
+        Debug.Log("Set LevelIndex to " + levelIndex);
     }
     
     void FinishLevel()
@@ -117,6 +128,17 @@ public class LevelManager : MonoBehaviour
         if (level != null)
         {
             RecipeManager.Instance.LoadRecipeFile(level.recipeFile);
+        }
+    }
+    
+    public void LoadLevelData(int levelIndex)
+    {
+        LevelSettings level = GetLevelSettings(levelIndex);
+        
+        if (level != null)
+        {
+            timerComponent.SetTimeMax(level.timeLimit);
+            timerComponent.StartTimer();
         }
     }
 }
